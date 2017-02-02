@@ -1,0 +1,153 @@
+<!doctype html>
+
+<html>
+<head>
+    <title> Reverse Pong </title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        canvas { border: 3px solid black; }
+    	</style>
+	   <script type="text/javascript">
+
+	var ballx = 150;
+	var bally = 150;
+	var dx = 3;
+	var dy = 3;
+	var ballradius = 10;
+
+    var boxWidth;
+	var boxHeight;
+	var ctx;
+	var interval =10;
+ 	var canvas1;
+        
+    var paddleHeight = 10;
+    var paddleWidth = 30;
+    var paddleX;
+    var paddleY;
+    var paddleLeft = false;
+    var paddleRight = false;
+    var paddle = true;
+        
+    var ballFreeze = false;
+    var dxHold;
+    var dyHold;
+        
+	// HERE *** set rightDown or leftDown if the right or left keys are down
+	function onKeyDown(evt) 
+	{	
+        //if(evt.keyCode == 38) ballFreeze = true;
+        //else if(evt.keyCode ==40) ballFreeze = false;
+        if (evt.keyCode == 39) 		paddleRight = true;
+        else if (evt.keyCode == 37) 	paddleLeft = true;  
+    } // end function
+
+	//*** and unset them when the right or left key is released
+	function onKeyUp(evt) 
+	{
+		  if (evt.keyCode == 39) 		paddleRight = false;
+		  else if (evt.keyCode == 37) 	paddleLeft = false;    
+	} // end onKeyUp function
+
+	function init()
+	{
+	   canvas1 = document.getElementById('canvas');
+	   ctx = canvas1.getContext('2d');
+        
+	   boxWidth = ctx.canvas.width; 
+  	   boxHeight = ctx.canvas.height;
+        
+        paddleX = (boxWidth-paddleWidth)/2;
+        paddleY = boxHeight-paddleHeight
+
+        window.addEventListener('keydown',onKeyDown,true);
+        window.addEventListener( 'keyup',onKeyUp,true );
+        
+	   // call setInterval to request browser to run function every 10 milliseconds
+	   return setInterval( draw, interval );
+	}
+
+	function circle(x,y,r) 
+	{
+  	     ctx.beginPath();
+  	     ctx.arc(x, y, r, 0, Math.PI*2, true);
+  	     ctx.closePath();
+         //ctx.fillStyle = '#68DB42';
+  	     ctx.fill();
+	}
+
+	function rect(x,y,w,h) 
+	{
+  	     ctx.beginPath();
+  	     ctx.rect(x,y,w,h);
+  	     ctx.closePath();
+  	     ctx.fill();
+	}
+
+	function clear() 
+	{
+  	 ctx.clearRect(0, 0, boxWidth, boxHeight);
+	}
+
+	function draw()
+	{   
+        clear();
+        circle(ballx,bally,ballradius);
+        if(paddle) rect(paddleX,paddleY,paddleWidth,paddleHeight);
+        
+        balltop = bally-ballradius;
+        ballbot = bally+ballradius;
+        ballleft = ballx-ballradius;
+        ballright = ballx+ballradius;
+        
+        if(ballFreeze==true){
+            dxHold=dx; dyHold=dy;
+            dx = 0; dy = 0;
+        }
+        if(ballFreeze == false && dx == 0){
+            dx = dxHold; dy = dyHold;
+        }
+        
+        if(ballright+dx > boxWidth || ballleft+dx < 0 ){
+	       dx = -dx*(Math.random()+.5);
+            if(Math.abs(dx)<3) dx*=2;
+        }
+        if(ballbot+dy > boxHeight || balltop+dy < 0){
+            dy = -dy*(Math.random()+.5);
+            if(Math.abs(dy)<3) dy*=2;
+        }
+        if(ballbot > paddleY && ballx < paddleX+paddleWidth && paddleX < ballx){
+            paddle = false;
+            clearInterval(0);
+        }
+
+        ballx += dx;
+        bally += dy;
+        
+        if ( paddleX > 0 && paddleLeft){
+            paddleX -= 5; 			// Go LEFT
+        }       
+        if ( paddleX+paddleWidth < boxWidth && paddleRight){
+            paddleX += 5; 			// Go RIGHT
+        }     
+    }
+	
+    </script>
+    </head>
+<body onload="init()"> 
+    <div id="leftlinks">
+        <div class="title">Table of Contents</div>
+        <div class="smaller"><a href="page2.html">Go to Page 2</a></div>
+        <div class="smaller"><a href="page1.html">Go to Page 1</a></div>
+    </div>
+        <div id="banner">Welcome to Page 3</div>
+        <div><img src="../../images/pong.jpg"></div>
+    <div><canvas id="canvas" width="300" height="300"></canvas></div>
+    <div>This is a game I created in another class.</div>
+    <div>It is written in javascript.</div>
+    <div>The objective is to DODGE the ball.</div>
+    <div>The left and right arrow keys are used to move the ball.</div>
+    <div>Lets see if we can place a .gif. </div>
+    <div><img src="../../images/skateboar.gif" width="300px"></div>
+    </body>
+</html>

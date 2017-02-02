@@ -1,0 +1,44 @@
+body{
+    background-color:aquamarine;
+}
+#leftlinks{
+    width:200px;
+    height:2000px;
+    float:left;
+    background-color: antiquewhite;
+}
+#banner{
+    height:40px;
+    width:inherit;
+    margin-top:auto;
+    background-color:deepskyblue;
+    color:black;
+    font-family:fantasy;
+    display:block;
+    letter-spacing: 6px;
+    vertical-align:baseline;
+    text-align:center;
+}
+.smaller{
+    font-size:20px;
+    color: lightblue;
+}
+.title{
+    font-size:26px;
+    font-style: italic;
+}
+a:link {
+    text-decoration: none;
+    font-weight: 1000;
+}
+a:hover{
+    background-color:white;
+    color:black;
+}
+a:visited{
+    color:darkblue; 
+}
+.larger{
+    font-size:30px;
+    
+}

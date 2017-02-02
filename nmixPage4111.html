@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<!--
+Spectral by HTML5 UP
+html5up.net | @n33co
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+
+        <title>New Media</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href='NMIX/fonts/webfonts.css' rel='stylesheet' type='text/css'>
+        <style type='text/css'>.greatVibes{font-family: great_vibes;}</style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="spectral/assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <style>
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #myImg:hover {opacity: 0.7;}
+
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content, #caption {    
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+                from {-webkit-transform:scale(0)} 
+                to {-webkit-transform:scale(1)}
+            }
+
+            @keyframes zoom {
+                from {transform:scale(0)} 
+                to {transform:scale(1)}
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 50px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+                .modal-content {
+                    width: 100%;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <script src="./annyang-master/annyang.min.js"></script>
+        <script src="./annyang-master/annyang.js"></script>
+        <script>
+            if (annyang) {
+                var goTo = function(tag){
+                    var inputWord = new String(tag);
+                    console.log('Go to: ' + tag);
+                    if(inputWord == 'home'){
+                        window.location.href = './index.html';
+                    }else if(inputWord == 'New Media Production'){
+                        window.location.href = './nmixPage4110.html';
+                    }else if(inputWord == 'New Media Design'){
+                        window.location.href = './nmixPage4111.html';
+                    }else if(inputWord == 'computer science'){
+                        window.location.href = './csciPage.html';
+                    }else if(inputWord == 'Hobbies'){
+                        window.location.href = './gallery.html';
+                    }else if(inputWord == 'contact me'){
+                        window.location.href = './contactPage.html';
+                    }else if(inputWord == 'my resume'){
+                        window.location.href = './resume.html';
+                    }else if(inputWord == 'jukebox'){
+                        window.location.href = './NMIX/audioVisualizer2/index.html';
+                    }
+                }
+                var scroll = function(tag){
+                    var inputWord = new String(tag);
+                    console.log("scroll " + tag);
+                    if(inputWord == 'up'){
+                        window.scrollBy(0,-500);
+                    }else if(inputWord == 'down'){
+                        window.scrollBy(0,500);
+                    }
+                }
+                var playSong = function(tag){
+                    console.log("Playing: " + tag);
+                }
+                var commands = {
+                    'go to *page':          goTo,
+                    'scroll *direction':    scroll,
+                    'Play *song':           playSong,
+                };
+
+                annyang.addCommands(commands);
+
+                annyang.start();
+            }
+        </script>
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1>NMIX 4111</h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="./nmixPage4110.html">New Media Production</a></li>
+                                    <li><a href="./nmixPage4111.html">New Media Design</a></li>
+                                    <li><a href="./csciPage.html">Computer Science</a></li>
+                                    <li><a href="./gallery.html">Hobbies</a></li>
+                                    <li><a href="./contactPage.html">Contact Me</a></li>
+                                    <li><a href="./NMIX/audioVisualizer2/index.html">JukeBox</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+                <header>
+                    <h2>NMIX 4111</h2>
+                    <p>Welcome to my new media production page</p>
+                </header>
+                <!-- Two -->
+                <section id="two" class="wrapper alt style2">
+                    <section class="spotlight">
+                        <div class="image" ><img src="images/blocks.png" alt=""/></div><div class="content">
+                        <h2>About the class<br /></h2>
+                        <p>New Media Design focuses on the application of fundamental design principles to create user-friendly new media projects in an aesthetically pleasing manner. Students explore UI and UX design topics and emerging fields such as interaction design and motion graphics.</p>
+                        </div>
+                    </section>
+                    <section class="spotlight">
+                        <div class="image" ><img src="images/chris.jpg" alt=""/></div><div class="content">
+                        <h2>Professor<br /></h2>
+                        <p>My professor for this class is Chris Gerlach. A link to his site is attached  <a href='http://mynmi.net/?portfolio=chris-gerlach'>here.</a></p>
+                        </div>
+                    </section>
+                    <section class="spotlight">
+                        <div class="image" ><img src="images/adobe.jpg" alt=""/></div><div class="content">
+                        <h2>Tools and Theory<br /></h2>
+                        <p> Our first segment was focused on Design tools and theory. We discussed attributes of design thinking, along with going through a few examples. Next we learned about the basics of Adobe Photoshop and Adobe Illustrator. My final project consisted of creating a website based upon the theories we learned, and using the tools we learned. Version 1 and 2 of my webpage is shown below, both were created using Adobe Photoshop.
+                        </p>
+                        <img src="NMIX/NMIX4111Photos/webpageV1.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=20% width=20% alt="When I started drawing my website in photoshop I had a very hard time deciding what colors I wanted everything to be. I tried many different colors, and eventually decided on blue since the picture I chose was primarily blue. I added an extra paragraph of text to take up more space on the website.">
+                        <img src="NMIX/NMIX4111Photos/webpageV2.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=20% width=20% alt="For my final draft, I took in the recommendations from my peers and made the text bigger and changed where the title was located. They preferred that the title be on top of the picture rather than along the top right hand corner.">
+                        <br>
+                        </div>
+                        <br>
+                    </section>
+                    <section class="spotlight">
+                        <div class="image" ><img src="NMIX/NMIX4111Pic/finalPics/Sunrise.jpg" alt=""/></div><div class="content">
+                        <h2>Photo and Video<br /></h2>
+                        <p>Our second segment was focused on photography. We learned about several different photography rules such as: Rule of thirds, Golden ratio, Rule of odds, Leading lines, etc.. Next we learned about the different settings on a DLSR camera, and used one to take pictures. The last bit of this section was spent diving deeper into Adobe Photoshop and applying the rules we learned on the pictures we've taken. Below and to the right are a few photoes I've taken.</p>
+                        <img src="NMIX/NMIX4111Pic/finalPics/rose.jpg" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=20% width=20% alt="This photo was taken early in the morning. I focused on applying the Rule of Thirds, along with Contrast to emphasize the rose.">
+                        <img src="NMIX/NMIX4111Pic/finalPics/sap.jpg" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=20% width=20% alt="This photo was taken on a tree branch where I saw sap slowly ebb down. What I really liked about this photo is the natural blue in the background.">
+                        <img src="NMIX/NMIX4111Pic/finalPics/Sidewalk.jpg" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=20% width=12% alt="For this photo, I used more editing than in any of the others. I apply rule of thirds, along with Leading lines with the pathway. Later on I made a copy of the person and moved her down the trail to show a bit of movement.">
+                        <img src="NMIX/NMIX4111Pic/finalPics/waterfall.jpg" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=10% width=19% alt="For this photo I used a slow shutter speed to capture the motion of the water. Later onn I used photoshop to increase the brightness a little to increase visibility.">
+                        </div>
+                    </section>
+                    <section class="spotlight">
+                        <div class="image" ><img src="images/typography.jpg" alt=""/></div><div class="content">
+                        <h2>Typography<br /></h2>
+                        <p>Our third segment focused on Typography. We learned about the Anaomy, Genealogy and Terminalogy of Text. This was followed by learning about the Legibility/Readability of text on different mediums. For our final project we created a few certificates for the New Media department. Mine are shown below.</p>
+                        <img src="NMIX/NMIX4111Photos/certificateDesign1.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=10% width=19% alt="My first design is focused on simplicity. I wanted to create a design that was simplistic, yet filling. I believe the red circle that extends off the page does this very well. The font that I used is SF New Republic (on ELC), and I decided on this since it looks quite modern and simple. I changed the text colors in the circle to be white to improve readability. Along with this I believe the transition from black characters to white characters gives this design a unique touch. ">
+                        <img src="NMIX/NMIX4111Photos/certificateDesign2.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=10% width=19% alt="My second design is an attempt to make a design similar to one I found online. I really like how they had the geometric shapes on the top left hand corner, however I did not like the original colors. The new colors I chose resembles the New Media Institute better. Next I created some lines to symbolize the progress in creating this design. This is the first design I did, where I altered the colors in the word “New Media Certificate”. Along with this I chose a portrait orientation because the design is more appropriate for this layout. ">
+                        <img src="NMIX/NMIX4111Photos/certificateDesign4.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=10% width=19% alt="For my fourth design I wanted to remove a portion of the blocks I created to simplify the design. Furthermore I decreased the opacity to increase the emphasis on the words “New Media Certificate”. I put the words “New Media certificate” onto 2 lines for this design to emphasize it, since it should be the main focus of the certificate. In addition to this, I added a line for First and Last name onto this certificate since the original certificate had an area for First and Last name. This would allow the New Media staff to include student and staff names on the certificate.">
+                        <img src="NMIX/NMIX4111Photos/certificateDesign5.png" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=10% width=19% alt="My last design, I wanted to go back to a simplistic design. I had the main body of text on the top-right and the “New Media Certificate” in the middle of the page. I changed the font to Halvetica since the x-height made this font more ‘box-y’. I kept the text elements from the previous design since I believe they are necessary for this certificate. Lastly I imported a brush from the web, and used it to draw the design on the background. To emphasize the words “New Media Certificate” I added a white banner and decreased the opacity. This allows the user to easily read the focus of this certificate “New Media Certificate” without hiding the background too much.">
+                        </div>
+                    </section>
+                    <section class="spotlight">
+                        <div class="image" ><img src="images/smartcart.png" alt=""/></div><div class="content">
+                        <h2>UX/UI &amp; Final Project<br /></h2>
+                        <p>Our last segment included the User Experience and User interface, along with our final project. We talked about the steps of creating a product, from ideation to creating the storyboard. Next we learned about wireframing, and created our own wireframe using marvel.com. Afterwards we focused on designing a good user experience on the web. We wrapped up this segment, and the class, with our final project. For our final project, we created a product, and advertised this product. I've attached our presentation and links to our product below.</p>
+                        <img src="images/merged.jpg" onClick="popUpImage(this)" onMouseOver="this.style.cursor='pointer'" height=50px width=20% alt="Our team presentation">
+                        <br>
+                        <a href="http://www.pseudodream.com/SmartCart/">Our products webpage</a>
+                        <br>
+                        <a href="https://marvelapp.com/16f406j/screen/17360324">Our products wireframe</a>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <ul class="icons">
+                        <li><a href="https://www.facebook.com/bowen.yang.33" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>&copy; The Non-copyright</li><li>Design: <a href="http://html5up.net">HTML5 UP: Spectral</a></li>
+                    </ul>
+                </footer>
+            </article>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="spectral/assets/js/jquery.min.js"></script>
+        <script src="spectral/assets/js/jquery.scrollex.min.js"></script>
+        <script src="spectral/assets/js/jquery.scrolly.min.js"></script>
+        <script src="spectral/assets/js/skel.min.js"></script>
+        <script src="spectral/assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="spectral/assets/js/main.js"></script>
+
+        <!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+        
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById('myImg');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+
+            function popUpImage(image){
+                modal.style.display = "block";
+                modalImg.src = image.src;
+                captionText.innerHTML = image.alt;
+            }
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+        </script>
+    </body>
+</html>

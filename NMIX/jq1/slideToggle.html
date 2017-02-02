@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>    #content {	width:600px;
+	display: none;  }  </style>  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<title>slideToggle</title>
+</head>
+<body>
+  <button>Reveal the Monkey</button>
+
+<p>
+    <img src="monkee4.jpg" width="579" height="368" alt="monkee"></p>
+<script>
+    $("button").click(function () {
+      $("p").slideToggle("slow");
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "annyang",
+  "version": "2.4.0",
+  "description": "A javascript library for adding voice commands to your site, using speech recognition",
+  "homepage": "https://www.talater.com/annyang/",
+  "main": "annyang.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TalAter/annyang.git"
+  },
+  "keywords": [
+    "annyang",
+    "annyang.js",
+    "speechrecognition",
+    "webkitspeechrecognition",
+    "voice",
+    "speech",
+    "recognition"
+  ],
+  "author": "Tal Ater <tal@talater.com> (https://www.talater.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TalAter/annyang/issues"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "async": "^1.5.0",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-template-jasmine-istanbul": "^0.4.0",
+    "grunt-template-jasmine-requirejs": "^0.2.3",
+    "grunt-markdox": "^1.2.1"
+  }
+}

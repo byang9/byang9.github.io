@@ -1,0 +1,60 @@
+body{
+    font-size: 15px;
+    color: blue;
+    opacity:1;
+}
+.smaller{
+    font-size: 12px;
+}
+.mydiv{
+    height: 270px;
+    width: 200px;
+    background-color: aqua;
+    float:top;
+    margin-right: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #FFF;
+    text-indent:50px;
+}
+
+html{
+    -webkit-background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size: cover;
+    background-size:cover;
+}
+#new_border_element{
+    max-width:20em;
+    padding:2px;
+    margin:2px;
+    background-clip: padding-box;
+    box-shadow:10px 10px 5px '#888888';
+}
+#all_content{
+    width:inherit;
+    height:2200px;
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url("pix/bkg.gif");
+    position:relative;
+}
+#leftlinks{
+    width:200px;
+    height:2100px;
+    float:left;
+    background-color: antiquewhite;
+}
+@font-face{
+    font-family:'great_vibes';
+    src:url('./fonts/great-vibes/GreatVibes-Regular.otf');
+}
+#header{
+    margin-top:auto;
+    float:inherit;
+    height:200px;
+    width:inherit;
+    float:left;
+    text-align:center;
+    font-size: 15px;
+}

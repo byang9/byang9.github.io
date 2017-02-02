@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+Spectral by HTML5 UP
+html5up.net | @n33co
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>CSCI4070</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href='NMIX/fonts/webfonts.css' rel='stylesheet' type='text/css'>
+        <style type='text/css'>.greatVibes{font-family: great_vibes;}</style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="spectral/assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    </head>
+    <body>
+        <script src="./annyang-master/annyang.min.js"></script>
+        <script src="./annyang-master/annyang.js"></script>
+        <script>
+            if (annyang) {
+                var goTo = function(tag){
+                    var inputWord = new String(tag);
+                        console.log('Go to: ' + tag);
+                        if(inputWord == 'home'){
+                            window.location.href = './index.html';
+                        }else if(inputWord == 'New Media Production'){
+                            window.location.href = './nmixPage4110.html';
+                        }else if(inputWord == 'New Media Design'){
+                            window.location.href = './nmixPage4111.html';
+                        }else if(inputWord == 'computer science'){
+                            window.location.href = './csciPage.html';
+                        }else if(inputWord == 'Hobbies'){
+                            window.location.href = './gallery.html';
+                        }else if(inputWord == 'contact me'){
+                            window.location.href = './contactPage.html';
+                        }else if(inputWord == 'my resume'){
+                            window.location.href = './resume.html';
+                        }else if(inputWord == 'jukebox'){
+                            window.location.href = './NMIX/audioVisualizer2/index.html';
+                        }
+                }
+                var scroll = function(tag){
+                    var inputWord = new String(tag);
+                    console.log("scroll " + tag);
+                    if(inputWord == 'up'){
+                        window.scrollBy(0,-500);
+                    }else if(inputWord == 'down'){
+                        window.scrollBy(0,500);
+                    }
+                }
+                var playSong = function(tag){
+                    console.log("Playing: " + tag);
+                }
+                var commands = {
+                    'go to *page':          goTo,
+                    'scroll *direction':    scroll,
+                    'Play *song':           playSong,
+                };
+
+                annyang.addCommands(commands);
+
+                annyang.start();
+            }
+        </script>
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1>CSCI Gallery</h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="./nmixPage.html">New Media</a></li>
+                                    <li><a href="./csciPage.html">Computer Science</a></li>
+                                    <li><a href="./gallery.html">Hobbies</a></li>
+                                    <li><a href="./contactPage.html">Contact Me</a></li>
+                                    <li><a href="./resume.html">My Resume</a></li>
+                                    <li><a href="./NMIX/audioVisualizer2/index.html">JukeBox</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+                <header background = 'images/'>
+
+                    <h2>Computer Science</h2>
+                    <p>Welcome to my game gallery for CSCI 4070</p>
+                </header>
+
+
+                <!-- Two -->
+                <section id="two" class="wrapper alt style2">
+                    <section class="spotlight">
+                        <div class="image"><iframe src="CSCI/pong.html" height=320px width=500px>alternative content for browsers which do not support iframe</iframe></div>
+                        <div class="content">
+                            <h2>Reverse Pong<br /></h2>
+                            <p>Here is a very simple javascript game, which makes you dodge the ball instead of hitting it. To play you have to click on the box to start, then use the left and right arrows to move the paddle.</p>
+                        </div>
+                    </section>
+
+                    <section class="spotlight">
+                        <div class="image" > <iframe src="CSCI/project1/game.html" height=650px width=545px>alternative content for browsers which do not support iframe</iframe></div><div class="content">
+                        <h2>Pacman<br /></h2>
+                        <p>This is a slightly more difficult version of pacman! To play click on the box and use the arrow keys to move.</p>
+                        </div>
+                    </section>
+
+                    <section class="spotlight">
+                        <div class="image" > <iframe src="CSCI/project2/index.html" height=500px width=650px>alternative content for browsers which do not support iframe</iframe></div><div class="content">
+                        <h2>ImpactJS game<br /></h2>
+                        <p>A game created in impactJS. To move use arrow keys, to shoot use 'c' key and to jump use 'x' key.</p>
+                        </div>
+                    </section>
+
+                    <section class="spotlight">
+                        <div class="image" > <iframe src="CSCI/test1/index.html" height=650px width=600px>alternative content for browsers which do not support iframe</iframe></div><div class="content">
+                        <h2>Collect-em<br /></h2>
+                        <p>Collect the footballs and avoid the yellow jackets!</p>
+                        </div>
+                    </section>
+
+                    <section class="spotlight">
+                        <a href="CSCI/webGame/webGame.html"> My Unity game</a>
+                        <div class="image" > 
+
+                        </div><div class="content">
+                        <h2>Escape<br /></h2>
+                        <p>This is a simple Unity game I created for my final project in Game programming. To play you use the 'w','a','s','d','space', and 'ctrl' key. To move the screen you just click on the screen and the screen will move with your mouse.</p>
+                    </div>
+                </section>
+            </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://www.facebook.com/bowen.yang.33" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; The Non-copyright</li><li>Design: <a href="http://html5up.net">HTML5 UP: Spectral</a></li>
+            </ul>
+        </footer>
+            </article>
+
+        </div>
+
+    <!-- Scripts -->
+    <script src="spectral/assets/js/jquery.min.js"></script>
+    <script src="spectral/assets/js/jquery.scrollex.min.js"></script>
+    <script src="spectral/assets/js/jquery.scrolly.min.js"></script>
+    <script src="spectral/assets/js/skel.min.js"></script>
+    <script src="spectral/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="spectral/assets/js/main.js"></script>
+
+    </body>
+</html>
