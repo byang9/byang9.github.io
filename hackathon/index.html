@@ -21,11 +21,32 @@
 if (annyang) {
   // Add our commands to annyang
   annyang.addCommands({
-    'view resume': function() { window.location.href = './resume.pdf'; },
-    'view github': function() { window.location.href = 'https://github.com/byang9'; },
-    'W': function(){ document.getElementById("eyetext").innerHTML = "E R"; document.getElementById("eyetext").style = "font-size:30px;";},
-    'ER': function(){document.getElementById("eyetext").innerHTML = "N U I"; document.getElementById("eyetext").style = "font-size:20px;"; },
-    'NUI': function(){ document.getElementById("eyetext").innerHTML = "Q N I J"; document.getElementById("eyetext").style = "font-size:15px;";}
+    'A': function(){ putInLetter("A")},
+    'B': function(){ putInLetter("B")},
+    'C': function(){ putInLetter("C")},
+    'D': function(){ putInLetter("D")},
+    'E': function(){ putInLetter("E")},
+    'F': function(){ putInLetter("F")},
+    'G': function(){ putInLetter("G")},
+    'H': function(){ putInLetter("H")},
+    'I': function(){ putInLetter("I")},
+    'J': function(){ putInLetter("J")},
+    'K': function(){ putInLetter("K")},
+    'L': function(){ putInLetter("L")},
+    'M': function(){ putInLetter("M")},
+    'N': function(){ putInLetter("N")},
+    'O': function(){ putInLetter("O")},
+    'P': function(){ putInLetter("P")},
+    'Q': function(){ putInLetter("Q")},
+    'R': function(){ putInLetter("R")},
+    'S': function(){ putInLetter("S")},
+    'T': function(){ putInLetter("T")},
+    'U': function(){ putInLetter("U")},
+    'V': function(){ putInLetter("V")},
+    'W': function(){ putInLetter("W")},
+    'X': function(){ putInLetter("X")},
+    'Y': function(){ putInLetter("Y")},
+    'Z': function(){ putInLetter("Z")}
   });
 
   // Tell KITT to use annyang
@@ -36,6 +57,29 @@ if (annyang) {
 
   // Render KITT's interface
   SpeechKITT.vroom();
+}
+var level = 0;
+var levelFont = ["50px","40px","30px","20px","15px","10px","8px"];
+var allLetter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var scores = ["20/200","20/100","20/80","20/63","20/50","20/40","20/32","20/25","20/20"]
+var letterNum = 0;
+var wrongCount = 0;
+function putInLetter(inputLetter){
+    if(inputLetter == document.getElementById("eyetext").innerHTML.toUpperCase()){
+        wrongCount=0;
+    }else{
+        wrongCount+=1;
+    }
+    letterNum +=1;
+    document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*26)];
+    if (letterNum>level){
+        level+=1;
+        document.getElementById("eyetext").style = "font-size:" + levelFont[level] + ";";
+    }
+    if(wrongCount>=2){
+        document.getElementById("eyetext").innerHTML = "Your eyesight is : " + scores[level];
+        document.getElementById("eyetext").style = "font-size:50px;";
+    }
 }
 </script>
 
