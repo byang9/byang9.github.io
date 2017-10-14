@@ -12,12 +12,13 @@
 		<title>Bowen Yang</title>
     </head>
     <body>
-        <h2 id="eyetext" style="font-size:50px;">W</h2>
+        <h2 id="eyetext" style="font-size:50px;">C</h2>
         
         <script src="../files/ann-yang/annyang.min.js"></script>
 <script src="../files/ann-yang/speechkitt.min.js"></script>
-        
+
 <script>
+    document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*allLetter.length)];
 if (annyang) {
   // Add our commands to annyang
   annyang.addCommands({
@@ -60,7 +61,7 @@ if (annyang) {
 }
 var level = 0;
 var levelFont = ["50px","40px","30px","20px","15px","10px","8px"];
-var allLetter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var allLetter = ["C", "D", "E", "F", "L", "N", "O", "P", "T", "Z"];
 var scores = ["20/200","20/100","20/80","20/63","20/50","20/40","20/32","20/25","20/20"]
 var letterNum = 0;
 var wrongCount = 0;
@@ -71,7 +72,7 @@ function putInLetter(inputLetter){
         wrongCount+=1;
     }
     letterNum +=1;
-    document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*26)];
+    document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*allLetter.length)];
     if (letterNum>level){
         level+=1;
         letterNum =0;
