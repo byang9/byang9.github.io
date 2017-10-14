@@ -18,6 +18,12 @@
 <script src="../files/ann-yang/speechkitt.min.js"></script>
 
 <script>
+var level = 0;
+var levelFont = ["50px","40px","30px","20px","15px","10px","8px"];
+var allLetter = ["C", "D", "E", "F", "L", "N", "O", "P", "T", "Z"];
+var scores = ["20/200","20/100","20/80","20/63","20/50","20/40","20/32","20/25","20/20"]
+var letterNum = 0;
+var wrongCount = 0;
     document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*allLetter.length)];
 if (annyang) {
   // Add our commands to annyang
@@ -59,12 +65,6 @@ if (annyang) {
   // Render KITT's interface
   SpeechKITT.vroom();
 }
-var level = 0;
-var levelFont = ["50px","40px","30px","20px","15px","10px","8px"];
-var allLetter = ["C", "D", "E", "F", "L", "N", "O", "P", "T", "Z"];
-var scores = ["20/200","20/100","20/80","20/63","20/50","20/40","20/32","20/25","20/20"]
-var letterNum = 0;
-var wrongCount = 0;
 function putInLetter(inputLetter){
     if(inputLetter == document.getElementById("eyetext").innerHTML.toUpperCase()){
         wrongCount=0;
