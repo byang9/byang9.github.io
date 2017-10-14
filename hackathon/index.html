@@ -12,7 +12,7 @@
 		<title>Bowen Yang</title>
     </head>
     <body>
-        <h2 id="eyetext">This is t2ext</h2>
+        <h2 id="eyetext" style="50px;">This is t2ext</h2>
         
         <script src="../files/ann-yang/annyang.min.js"></script>
 <script src="../files/ann-yang/speechkitt.min.js"></script>
@@ -23,7 +23,8 @@ if (annyang) {
   annyang.addCommands({
     'view resume': function() { window.location.href = './resume.pdf'; },
     'view github': function() { window.location.href = 'https://github.com/byang9'; },
-    'W': function() { document.getElementById("eyetext").innerHTML = "It worked"; }
+    'W': function() { document.getElementById("eyetext").innerHTML = "E"; document.getElementById("eyetext").style = "font-size:30px;";},
+    'E': function(){document.getElementById("eyetext").innerHTML = "N"; document.getElementById("eyetext").style = "font-size:20px;"; }
   });
 
   // Tell KITT to use annyang
