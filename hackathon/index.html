@@ -74,6 +74,7 @@ function putInLetter(inputLetter){
     document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*26)];
     if (letterNum>level){
         level+=1;
+        letterNum =0;
         document.getElementById("eyetext").style = "font-size:" + levelFont[level] + ";";
     }
     if(wrongCount>=2){
