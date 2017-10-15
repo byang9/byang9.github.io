@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+    Notes:
+    For popup/Modal boxes go to https://www.w3schools.com/howto/howto_css_modals.asp
+-->
+<html>
+	<head>
+		<title>Bowen Yang</title>
+
+        <script src="./speech/annyang.js"></script>
+        <script src="./speech/speechkitt.min.js"></script>
+
+        <script src="./image/tracking.js"></script>
+        <script src="./image/data/face-min.js"></script>
+        <script src="./image/training/Landmarks.js"></script>
+        <script src="./image/training/Regressor.js"></script>
+
+
+
+        <style>
+            video, canvas {
+                margin-left: 10px;
+                margin-top: 10px;
+                position:absolute;
+            }
+        </style>
+
+    </head>
+    <body>
+    <div class="demo-frame">
+        <div class="demo-container">
+            <video id="video" width="320" height="240" preload autoplay loop muted style="visibility:hidden"></video>
+            <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+    </div>
+        <div style="text-align:center;line-height:200px;font-size:30px;">
+<div id="inputNumber" style="visibility:hidden;">
+        Please enter your distance from the camera in meters: <input id="inputNumber1" type="number" name="quantity" onchange="updateDistance()" min="1" max="99">
+        </div>
+            </div>
+        <div style="text-align:center;vertical-align:top;line-height:100px;">
+        <h2 id="eyetext" style="font-size:200px;">dummy text right now</h2>
+            </div>
+        <div id="cameraAccess" style="visibility: hidden">true</div>
+        
+    <script>
+        var inputDistance = 0;
+        DistanceScale=8.75; // distance between eyes is 70 when it's 20cm away. or 7 when it's 200cm away.
+        CurrentDistance=70;
+        window.onload = function() {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+             tracker = new tracking.LandmarksTracker();
+            tracker.setInitialScale(4);
+            tracker.setStepSize(2);
+            tracker.setEdgesDensity(0.1);
+            try{
+                tracking.track('#video', tracker, { camera: true });
+            }catch(err){
+                console.log(err);
+            }
+            tracker.on('track', function(event) {
+
+                context.clearRect(0,0,canvas.width, canvas.height);
+
+                if(!event.data) return;
+                event.data.landmarks.forEach(function(landmarks) {
+                    for (var l in landmarks) {
+                        if (l == 19 || l == 23) {
+                            context.beginPath();
+                            context.fillStyle = "#fff"
+                            context.arc(landmarks[l][0], landmarks[l][1], 1, 0, 2 * Math.PI);
+                            context.fill();
+                        }
+                    }
+
+                    CurrentDistance=Math.sqrt((event.data.landmarks[0][23][0]-event.data.landmarks[0][19][0])*(event.data.landmarks[0][23][0]-event.data.landmarks[0][19][0])+
+                                (event.data.landmarks[0][23][1]-event.data.landmarks[0][19][1])*(event.data.landmarks[0][23][1]-event.data.landmarks[0][19][1]));
+                });
+
+            });
+
+
+        };
+        
+var level = 0;
+
+var fontScale = [200,160,125,100,80,63,50,32,25,20,16,12.5,10];
+var levelFont = fontScale;
+var allLetter = ["C", "D", "E", "F", "N", "O", "P", "T", "Z"];
+var scores = ["20/200","20/100","20/80","20/63","20/50","20/40","20/32","20/25","20/20","20/16"]
+var letterNum = 0;
+var wrongCount = 0;
+var newLetter;
+document.getElementById("eyetext").innerHTML = "Click on the Mic icon to start";
+document.getElementById("eyetext").style = "font-size:60px;"
+
+if (annyang) {
+  // Add our commands to annyang
+  annyang.addCommands({
+      '*allSpeech':function(allSpeech){
+                letterPhrase=/[lL]etter [A-Za-z]\b/;
+                if (letterPhrase.test(allSpeech)) {
+                    console.log("letter phrase");
+                    putInLetter(allSpeech.substring(allSpeech.indexOf("letter"))[7].toUpperCase());
+                }}
+      
+  });
+
+  // Tell KITT to use annyang
+  SpeechKITT.annyang();
+
+  // Define a stylesheet for KITT to use
+  SpeechKITT.setStylesheet('./themes/flat.css');
+    setTimeout(function(){document.getElementById("skitt-listening-text__instructions").innerHTML = "Test starting";},1000);
+
+    SpeechKITT.setStartCommand(function(){
+        annyang.start();
+        var letterNum = 0;
+        var wrongCount = 0;
+        var level = 0;
+        levelFont=fontScale.map(function (d){
+            if(document.getElementById("cameraAccess").innerHTML == "true"){
+                return d*(DistanceScale/CurrentDistance); }
+            else{
+                return d*inputDistance/2;
+            }
+            ///scale the level font size when clicking the button. TODO: Prompt user to cover one eye after it starts.
+        });
+
+        document.getElementById("eyetext").innerHTML = allLetter[Math.floor(Math.random()*allLetter.length)];
+        document.getElementById("eyetext").style = "font-size:" + levelFont[level] + "px;";});
+
+    //document.getElementById("skitt-listening-text__instructions").innerHTML = "Test starting";
+  // Render KITT's interface
+  SpeechKITT.vroom();
+}
+function putInLetter(inputLetter){
+	
+    if(inputLetter == document.getElementById("eyetext").innerHTML.toUpperCase()){
+        wrongCount=0;
+    }else{
+        wrongCount+=1;
+    }
+    letterNum +=1;
+    newLetter = allLetter[Math.floor(Math.random()*allLetter.length)];
+    while(newLetter==document.getElementById("eyetext").innerHTML){
+        newLetter = allLetter[Math.floor(Math.random()*allLetter.length)];
+    }
+    document.getElementById("eyetext").innerHTML = newLetter;
+    if (letterNum>level){
+        level+=1;
+        letterNum =0;
+        wrongCount=0;
+        document.getElementById("eyetext").style = "font-size:" + levelFont[level] + "px;";
+    }
+    if(wrongCount>=2){
+        document.getElementById("eyetext").innerHTML = "Your eyesight is : " + scores[level];
+        document.getElementById("eyetext").style = "font-size:50px;";
+        document.getElementById("skitt-ui").className = "skitt-ui--not-listening";
+    }
+    
+}
+function updateDistance(){
+    inputDistance = document.getElementById("inputNumber1").value;
+    //console.log(document.getElementById("inputNumber1").value);
+}
+</script>
+
+	</body>
+</html>
