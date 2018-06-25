@@ -1,0 +1,48 @@
+Begin Default Map (3 defaults)
+-My default maps can be found in this folder. grid.txt, grid1.txt, grid2.txt
+Final Values F(x), H(x), and G(x)	
+-Final F,H,G values can be seen on the grid. F (topleft), H (bottomleft), and G(bottomright)
+Final Path Drawn	
+-Final path is drawn in yellow
+Final Length & #Steps Displayed	
+-Both are displayed under the speed bar
+Efficency Smooth Anim	
+-Animation is smooth
+Contral Speed of Animation	
+-You can control speed of animation by moving the speed bar
+Configurable size of at least 500	
+-can support sizes of 500+
+Configurable Obstacles  placement	
+-Obstacles are 'o' in the textArea, they can be added/removed by adding/removing an 'o'
+Goal (x,y) Configurable placement	
+-Goal is 'b', can be added to textArea
+Start (x, y) Configurable placement	
+-Start is 'a', can be added to textArea
+Provide a Stepped Speed	
+-Must have speed bar at very left, then you can just click the step button
+Report w/  screen shots or Video	
+-screenshots are included
+Quality Craftmanship	
+-Algorithm is written correctly, transitions are smooth, and everything works 
+Grading.txt 	
+-This document
+3 Tests for Correctness	
+-tests are included (default maps)
+Readme.txt	
+-included in this folder
+Demo (MH)   + Q/A	
+-Will be done on Thursday
+Game like look  	
+-There is a gamify button to change the boxes into tiles
+ 
+Embellishments 	
+Comp to Dijkstra	
+-Dijkstra option included in drop down
+Comp to Best First	
+-best first option included in drop down
+Diff Heuristic(each 5)  (up to 15)	
+-3 different heuristics included
+Large Environ ment more than1K cells	
+-can support more than 1000 cells
+Other (based on level of effort)	?
+-Included a random grid creation option (5)
